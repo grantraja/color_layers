@@ -1,3 +1,4 @@
+import 'package:color_layers/board.dart';
 import 'package:color_layers/sample_drawer.dart';
 import 'package:color_layers/sample_navbar.dart';
 import 'package:color_layers/sample_rows.dart';
@@ -33,7 +34,16 @@ class Layers extends StatelessWidget {
           Expanded(
             child: Card(
               color: color.oneBaseColor,
-              child: sampleChart(),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const BoardDiagram(),
+                    sampleChart(context),
+                  ],
+                ),
+              ),
             ),
           ),
           Expanded(

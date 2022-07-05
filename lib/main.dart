@@ -1,8 +1,18 @@
+import 'package:color_layers/number_gen.dart';
 import 'package:flutter/material.dart';
 import 'package:color_layers/layers.dart';
 
+import 'package:provider/provider.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => DataProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -27,8 +37,22 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
-  Widget build(BuildContext context) {
+  void dispose() {
+    Provider.of<DataProvider>(context).gen = false;
+    super.dispose();
+  }
 
+  // @override
+  // void initState() {
+  //   numberGen();
+  //   super.initState();
+  // }
+
+  @override
+  Widget build(BuildContext context) {
+    // numberGen();
+    // Provider.of<DataProvider>(context).
+    // context.read<DataProvider>().gen = true;
     return const Layers();
   }
 }
