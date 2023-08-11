@@ -11,6 +11,9 @@ class Layers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.height);
+    // print(MediaQuery.of(context).size.height - Scaffold.of(context).appBarMaxHeight);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Title"),
