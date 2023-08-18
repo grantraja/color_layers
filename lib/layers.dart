@@ -1,4 +1,5 @@
 import 'package:color_layers/board.dart';
+import 'package:color_layers/newboard.dart';
 import 'package:color_layers/sample_drawer.dart';
 import 'package:color_layers/sample_navbar.dart';
 import 'package:color_layers/sample_rows.dart';
@@ -42,7 +43,11 @@ class Layers extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const BoardDiagram(),
+                    CompDiagram(
+                      height: 250,
+                      // width: 300,
+                    ),
+                    // const BoardDiagram(),
                     sampleChart(context),
                   ],
                 ),

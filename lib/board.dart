@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'number_gen.dart';
 import 'package:color_layers/colors.dart';
 import 'package:flutter/cupertino.dart';
+import 'coordinated_offset.dart';
 
 class BoardDiagram extends StatelessWidget {
   const BoardDiagram({super.key});
@@ -11,14 +12,14 @@ class BoardDiagram extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200,
-      width: 200,
+      height: 400,
+      width: 400,
       child: Stack(
         children: [
           Image.asset('assets/board.png'),
           CoordinateOffset(
-            X: 0.405,
-            Y: 0.14,
+            X: 0.55,
+            Y: 0.2,
             height: 200,
             width: 200,
             child: CircularChartOne(
@@ -75,41 +76,3 @@ class BoardDiagram extends StatelessWidget {
   }
 }
 
-class CoordinateOffset extends StatelessWidget {
-  final Widget child;
-  final double X;
-  final double Y;
-  final double height;
-  final double width;
-  const CoordinateOffset({
-    required this.child,
-    required this.X,
-    required this.Y,
-    required this.height,
-    required this.width,
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: height,
-      width: width,
-      child: Column(
-        children: [
-          SizedBox(
-            height: height * Y,
-          ),
-          Row(
-            children: [
-              SizedBox(
-                width: width * X,
-              ),
-              child,
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}
